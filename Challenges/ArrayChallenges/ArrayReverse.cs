@@ -4,7 +4,7 @@
     {
         public static int[] Reverse(int[] numbers)
         {
-
+            return numbers;
         }
     }
 }
