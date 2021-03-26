@@ -15,5 +15,11 @@ namespace DataStructures.LinkedLists
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            // TODO: homework
+            return "NULL";
+        }
     }
 }

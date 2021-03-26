@@ -13,6 +13,8 @@ namespace DataStructures.Tests.LinkedLists
 
             // Assert
             Assert.Null(list.Head);
+
+            Assert.Equal("NULL", list.ToString());
         }
 
         [Fact]
