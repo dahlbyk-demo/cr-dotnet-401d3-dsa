@@ -62,15 +62,23 @@ namespace DataStructures.Trees
 
         private IEnumerable<int> InOrder(Node root)
         {
+            if (root == null)
+                yield break;
+
             //if root.left is not NULL
-            //    inOrder(root.left)
+            if (root.Left != null)
+                // inOrder(root.left)
+                foreach (var leftNode in InOrder(root.Left))
+                    yield return leftNode;
 
             //OUTPUT < --root.value
-            if (root != null)
-                yield return root.Value;
+            yield return root.Value;
 
             //if root.right is not NULL
-            //    inOrder(root.right)
+            if (root.Right != null)
+                // inOrder(root.right)
+                foreach (var rightNode in InOrder(root.Right))
+                    yield return rightNode;
 
             yield break;
         }

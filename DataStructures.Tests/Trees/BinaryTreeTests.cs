@@ -129,7 +129,7 @@ namespace DataStructures.Tests.Trees
             var result = tree.InOrder();
 
             // Assert
-            Assert.Equal(new[] { 2, 7, 5, 2, 6, 9, 5, 11, 4 }, result);
+            Assert.Equal(new[] { 2, 7, 5, 6, 11, 2, 5, 4, 9 }, result);
         }
     }
 }
