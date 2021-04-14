@@ -58,6 +58,23 @@ namespace DataStructures.Trees
                 PreOrder(node.Right, result);
         }
 
+        public IEnumerable<int> InOrder() => InOrder(Root);
+
+        private IEnumerable<int> InOrder(Node root)
+        {
+            //if root.left is not NULL
+            //    inOrder(root.left)
+
+            //OUTPUT < --root.value
+            if (root != null)
+                yield return root.Value;
+
+            //if root.right is not NULL
+            //    inOrder(root.right)
+
+            yield break;
+        }
+
         // TODO: PostOrder, InOrder
     }
 
