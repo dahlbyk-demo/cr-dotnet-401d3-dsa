@@ -19,11 +19,9 @@ namespace DataStructures.Trees
                 breadth.Enqueue(Root);
 
             //while breadth.peek()
-            while (breadth.Count > 0)
+            //  node front = breadth.dequeue()
+            while (breadth.TryDequeue(out Node front))
             {
-                //  node front = breadth.dequeue()
-                var front = breadth.Dequeue();
-
                 //  OUTPUT <-- front.value
                 yield return front.Value;
 
