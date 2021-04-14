@@ -10,6 +10,11 @@ namespace DataStructures.Trees
     {
         public Node Root { get; set; }
 
+        public IEnumerable<int> BreadthFirst()
+        {
+            yield break;
+        }
+
         public List<int> PreOrder()
         {
             List<int> result = new List<int>();
