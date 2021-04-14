@@ -84,6 +84,20 @@ namespace DataStructures.Trees
         }
 
         // TODO: PostOrder, InOrder
+
+        // Not tree related
+        public static IEnumerable<int> CountForever(int start)
+        {
+            while (true)
+                yield return start++;
+        }
+
+        public static IEnumerable<int> RandomValues()
+        {
+            var random = new Random();
+            while (true)
+                yield return random.Next();
+        }
     }
 
     public class Node

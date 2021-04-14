@@ -130,6 +130,18 @@ namespace DataStructures.Tests.Trees
 
             // Assert
             Assert.Equal(new[] { 2, 7, 5, 6, 11, 2, 5, 4, 9 }, result);
+
+            Assert.Equal(new[] { 2, 7, 5 }, tree.InOrder().Take(3));
+        }
+
+        [Fact]
+        public void Unrelated_yield_return_demo()
+        {
+            Assert.Equal(new[] { 1, 2, 3 }, BinaryTree.CountForever(1).Take(3));
+
+            //foreach (int n in BinaryTree.CountForever(7))
+            //    Console.WriteLine(n);
+
         }
     }
 }
