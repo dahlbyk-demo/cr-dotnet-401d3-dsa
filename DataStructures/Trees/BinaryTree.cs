@@ -15,16 +15,14 @@ namespace DataStructures.Trees
             //Queue breadth <-- new Queue()
             var breadth = new Queue<Node>();
             //breadth.enqueue(root)
-            breadth.Enqueue(Root);
+            if (Root != null)
+                breadth.Enqueue(Root);
 
             //while breadth.peek()
             while (breadth.Count > 0)
             {
                 //  node front = breadth.dequeue()
                 var front = breadth.Dequeue();
-
-                // If front isn't actually a node, skip it
-                if (front == null) continue;
 
                 //  OUTPUT <-- front.value
                 yield return front.Value;
