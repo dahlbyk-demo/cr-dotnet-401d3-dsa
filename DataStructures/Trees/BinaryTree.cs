@@ -12,7 +12,35 @@ namespace DataStructures.Trees
 
         public IEnumerable<int> BreadthFirst()
         {
-            yield break;
+            //Queue breadth <-- new Queue()
+            var breadth = new Queue<Node>();
+            //breadth.enqueue(root)
+            breadth.Enqueue(Root);
+
+            //while breadth.peek()
+            while (breadth.Count > 0)
+            {
+                //  node front = breadth.dequeue()
+                var front = breadth.Dequeue();
+
+                // If front isn't actually a node, skip it
+                if (front == null) continue;
+
+                //  OUTPUT <-- front.value
+                yield return front.Value;
+
+                //  if front.left is not NULL
+                if (front.Left != null)
+                    //    breadth.enqueue(front.left)
+                    breadth.Enqueue(front.Left);
+
+                //  if front.right is not NULL
+                if (front.Right != null)
+                    //    breadth.enqueue(front.right)
+                    breadth.Enqueue(front.Right);
+            }
+
+            // yield break; // No longer needed, but helpful at the start
         }
 
         public List<int> PreOrder()
