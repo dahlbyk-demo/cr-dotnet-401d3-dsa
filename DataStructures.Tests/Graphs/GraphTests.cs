@@ -56,5 +56,8 @@ namespace DataStructures.Tests.Graphs
             var neighborsB = graph.GetNeighbors("B");
             Assert.Empty(neighborsB);
         }
+
+        // TODO: Edge data (aka weight)
+        // TODO: Value not found?
     }
 }
