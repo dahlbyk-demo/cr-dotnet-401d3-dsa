@@ -8,15 +8,12 @@ namespace DataStructures.Graphs
 {
     public class Graph<TValue, TEdge>
     {
-        // Generic-friendly way to check equality
-        private readonly IEqualityComparer<TValue> comparer = EqualityComparer<TValue>.Default;
-
-        private readonly List<Node> nodes = new List<Node>();
+        private readonly Dictionary<TValue, Node> nodes = new();
 
         public void AddNode(TValue value)
         {
             var node = new Node { Value = value };
-            nodes.Add(node);
+            nodes.Add(value, node);
         }
 
         /// <summary>
@@ -24,8 +21,8 @@ namespace DataStructures.Graphs
         /// </summary>
         public void AddEdge(TValue from, TValue to, TEdge data = default)
         {
-            var fromNode = nodes.First(n => comparer.Equals(n.Value, from));
-            var toNode = nodes.First(n => comparer.Equals(n.Value, to));
+            var fromNode = nodes[from];
+            var toNode = nodes[to];
 
             fromNode.Edges.Add(new Edge
             {
@@ -34,11 +31,11 @@ namespace DataStructures.Graphs
             });
         }
 
-        public IEnumerable<Node> Nodes => nodes;
+        public IEnumerable<Node> Nodes => nodes.Values;
 
         public IEnumerable<Edge> GetNeighbors(TValue value)
         {
-            var fromNode = nodes.First(n => comparer.Equals(n.Value, value));
+            var fromNode = nodes[value];
 
             return fromNode.Edges;
         }
