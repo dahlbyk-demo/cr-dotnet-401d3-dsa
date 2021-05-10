@@ -19,14 +19,14 @@ namespace DataStructures.Graphs
         {
         }
 
-        public IEnumerable<Node> Nodes => throw new NotImplementedException();
+        public IEnumerable<Node> Nodes => Enumerable.Empty<Node>();
 
         public IEnumerable<Edge> GetNeighbors(TValue value)
         {
             throw new NotImplementedException();
         }
 
-        public int Count => throw new NotImplementedException();
+        public int Count => 0;
 
         public class Node
         {
