@@ -34,5 +34,27 @@ namespace DataStructures.Tests.Graphs
             Assert.Contains(graph.Nodes, n => n.Value == "A");
             Assert.Equal(1, graph.Count);
         }
+
+        [Fact]
+        public void AddEdge_adds_directed_edge_we_can_see_with_GetNeighbors()
+        {
+            // Arrange
+            var graph = new Graph<string, int>();
+            graph.AddNode("A");
+            graph.AddNode("B");
+
+            // Act
+            graph.AddEdge("A", "B");
+
+            // Assert
+            var neighborsA = graph.GetNeighbors("A");
+
+            var aToB = neighborsA.Single();
+            Assert.Equal("A", aToB.From.Value);
+            Assert.Equal("B", aToB.To.Value);
+
+            var neighborsB = graph.GetNeighbors("B");
+            Assert.Empty(neighborsB);
+        }
     }
 }
