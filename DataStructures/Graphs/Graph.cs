@@ -8,8 +8,12 @@ namespace DataStructures.Graphs
 {
     public class Graph<TValue, TEdge>
     {
+        private readonly List<Node> nodes = new List<Node>();
+
         public void AddNode(TValue value)
         {
+            var node = new Node { Value = value };
+            nodes.Add(node);
         }
 
         /// <summary>
@@ -19,17 +23,18 @@ namespace DataStructures.Graphs
         {
         }
 
-        public IEnumerable<Node> Nodes => Enumerable.Empty<Node>();
+        public IEnumerable<Node> Nodes => nodes;
 
         public IEnumerable<Edge> GetNeighbors(TValue value)
         {
             throw new NotImplementedException();
         }
 
-        public int Count => 0;
+        public int Count => nodes.Count;
 
         public class Node
         {
+            public TValue Value { get; set; }
         }
 
         public class Edge

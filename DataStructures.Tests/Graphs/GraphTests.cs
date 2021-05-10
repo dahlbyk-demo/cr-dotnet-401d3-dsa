@@ -20,5 +20,19 @@ namespace DataStructures.Tests.Graphs
             Assert.Empty(graph.Nodes);
             Assert.Equal(0, graph.Count);
         }
+
+        [Fact]
+        public void AddNode_adds_nodes()
+        {
+            // Arrange
+            var graph = new Graph<string, int>();
+
+            // Act
+            graph.AddNode("A");
+
+            // Assert
+            Assert.Contains(graph.Nodes, n => n.Value == "A");
+            Assert.Equal(1, graph.Count);
+        }
     }
 }
